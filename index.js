@@ -42,7 +42,7 @@ async function run() {
 
     try {
         // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
+        // await client.connect();
 
         const services = client.db("carDoctor").collection("services");
         const orders = client.db("carDoctor").collection("orders");
@@ -74,7 +74,7 @@ async function run() {
         })
 
 
-        //orders routes
+        // orders routes
         app.get('/orders', verifyJWT, async (req, res) => {
             if (req.decoded.email !== req.query?.email) {
                 res.status(403).send({error:1 , message: "forbidden access"})
